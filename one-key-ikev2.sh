@@ -162,19 +162,19 @@ function pre_install(){
     else
         have_cert="0"
         echo "please input the cert country(C):"
-        read -p "C(default value:com):" my_cert_c
+        read -p "C(default value:USA):" my_cert_c
         if [ "$my_cert_c" = "" ]; then
-            my_cert_c="com"
+            my_cert_c="USA"
         fi
         echo "please input the cert organization(O):"
-        read -p "O(default value:myvpn):" my_cert_o
+        read -p "O(default value:GOODIX):" my_cert_o
         if [ "$my_cert_o" = "" ]; then
-            my_cert_o="myvpn"
+            my_cert_o="GOODIX"
         fi
         echo "please input the cert common name(CN):"
-        read -p "CN(default value:VPN CA):" my_cert_cn
+        read -p "CN(default value:GOODIX Root CA):" my_cert_cn
         if [ "$my_cert_cn" = "" ]; then
-            my_cert_cn="VPN CA"
+            my_cert_cn="GOODIX Root CA"
         fi
     fi
 
@@ -212,7 +212,7 @@ function pre_install(){
 
 # Download strongswan
 function download_files(){
-    strongswan_version='strongswan-5.5.1'
+    strongswan_version='strongswan-5.6.0'
     strongswan_file="$strongswan_version.tar.gz"
     if [ -f $strongswan_file ];then
         echo -e "$strongswan_file [$(__green "found")]"
